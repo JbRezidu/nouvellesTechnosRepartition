@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MyServiceImplService" targetNamespace="http://premierWebServiceClass/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://premierWebServiceClass/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://premierWebServiceClass/" schemaLocation="myserviceimpl_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="ajouteResponse">
+    <wsdl:part name="parameters" element="tns:ajouteResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recupereListResponse">
+    <wsdl:part name="parameters" element="tns:recupereListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ajoute">
+    <wsdl:part name="parameters" element="tns:ajoute">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recupereList">
+    <wsdl:part name="parameters" element="tns:recupereList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MyServiceImpl">
+    <wsdl:operation name="ajoute">
+      <wsdl:input name="ajoute" message="tns:ajoute">
+    </wsdl:input>
+      <wsdl:output name="ajouteResponse" message="tns:ajouteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recupereList">
+      <wsdl:input name="recupereList" message="tns:recupereList">
+    </wsdl:input>
+      <wsdl:output name="recupereListResponse" message="tns:recupereListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyServiceImplServiceSoapBinding" type="tns:MyServiceImpl">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ajoute">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ajoute">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ajouteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recupereList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="recupereList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="recupereListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyServiceImplService">
+    <wsdl:port name="MyServiceImplPort" binding="tns:MyServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/WebServiceProject/services/MyServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

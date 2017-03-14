@@ -1,0 +1,13 @@
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+@Path("/test")
+public class TestResources {
+	@GET
+	@Path("/getJSONPerson")
+	@Produces("application/json")
+	public Personne getJSONPerson() {
+		return new Personne();
+	}
+}

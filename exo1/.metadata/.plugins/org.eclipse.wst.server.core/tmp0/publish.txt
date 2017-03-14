@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Feb 09 12:00:55 CET 2017
+org.eclipse.jst.j2ee.server\:premierWebServiceClass=WEB-INF/lib/premierWebServiceClass.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\eclipseNeon\\apache-cxf-3.1.10\\apache-cxf-3.1.10\\lib\\spring-web-4.1.9.RELEASE.jar=WEB-INF/lib/spring-web-4.1.9.RELEASE.jar

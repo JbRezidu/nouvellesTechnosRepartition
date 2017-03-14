@@ -1,0 +1,47 @@
+<xs:schema  elementFormDefault="qualified" 
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:bib="exemple1Test"
+			targetNamespace="exemple1Test"
+			xmlns="http://www.w3schools.com"
+			>
+  <xs:element name="bibliotheque">	  
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ouvrage" maxOccurs="unbounded" minOccurs="0">  
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="titre" minOccurs="1"/>
+              <xs:element type="xs:string" name="auteur" maxOccurs="unbounded" minOccurs="1"/>
+              <xs:element type="xs:string" name="editeur" minOccurs="1"/>
+              <xs:element type="xs:int" name="prix" minOccurs="1"/>
+              <xs:element name="refs" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="refLivre" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:int" name="isbn"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:int" name="ibsn"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="isbnKey" id="isbnKey">
+	    <xs:selector xpath="ouvrage"/>
+	    <xs:field xpath="@isbn"/>
+	</xs:key>
+	<xs:keyref name="refKey" refer="bib:isbnKey">
+		<xs:selector xpath="ouvrage/refs/refLivre"/>
+	  	<xs:field xpath="@isbn"/>
+	</xs:keyref>
+  </xs:element>
+</xs:schema>

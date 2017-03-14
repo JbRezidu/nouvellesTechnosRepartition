@@ -1,0 +1,42 @@
+package com.github.jbduriez.entities;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.github.jbduriez.entities.Personne;
+
+@Stateless
+public class PersonneService {
+	
+	/*@PersistenceContext(unitName="PersonneService")
+	private EntityManagerFactory emf;*/
+		
+	@PersistenceContext(unitName="PersonneService")
+	private EntityManager em;
+	
+	
+	public PersonneService () {
+	}
+	
+	public Personne createPerson () {
+		//EntityManager em = emf.createEntityManager();
+		Personne p = new Personne();
+		em.persist(p);
+		//try {
+			return p;
+		//	}
+		//finally{
+			//em.close();
+		//	}
+	}
+	
+	public Personne findPerson (int id) {
+		//EntityManager em = emf.createEntityManager();
+		try{
+			return em.find(Personne.class, id);
+		}
+		finally{
+			em.close();
+		}
+	}
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\Users\PC-JB\OneDrive\Documents\Master2\Cours\S2\nouvellesTechnoRepartition\CM\exemples\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1561462614.index
+2216180215.index
+2425485883.index
+2610828202.index
+3690487292.index
+3161537574.index

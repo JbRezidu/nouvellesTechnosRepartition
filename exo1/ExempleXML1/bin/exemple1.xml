@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibliotheque xmlns="exemple1Test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="exemple1Test schemaXMLExemple1.xsd">
+	<ouvrage ibsn="1234">
+		<titre>ygyg</titre>
+		<auteur>uhuhu</auteur>
+		<editeur>ISTV</editeur>
+		<prix>500</prix>
+	</ouvrage>
+	<ouvrage ibsn="2222">
+		<titre>Jordane decu a la bu</titre>
+		<auteur>Jordane</auteur>
+		<editeur>BU</editeur>
+		<prix>40</prix>
+	</ouvrage>
+	<ouvrage ibsn="3333">
+		<titre>JB sur Skyrim</titre>
+		<auteur>JB</auteur>
+		<auteur>Jordane</auteur>
+		<editeur>Steam</editeur>
+		<prix>15</prix>
+		<refs>
+			<refLivre isbn="1234"/>
+		</refs>
+	</ouvrage>
+	<ouvrage ibsn="4444">
+		<titre>Livre de ref</titre>
+		<auteur>Moit</auteur>
+		<editeur>ISTV</editeur>
+		<prix>10</prix>
+		<refs>
+			<refLivre isbn="1234"/>
+			<refLivre isbn="2222"/>
+		</refs>
+	</ouvrage>
+</bibliotheque>

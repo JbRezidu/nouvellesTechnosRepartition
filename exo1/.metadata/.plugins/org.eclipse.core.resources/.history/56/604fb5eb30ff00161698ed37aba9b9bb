@@ -1,0 +1,42 @@
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+
+@Path("/test")
+public class TestResources {
+	@GET
+	@Path("/getJSONPerson")
+	@Produces("application/json")
+	public Personne getJSONPerson() {
+		return new Personne();
+	}
+	
+	@GET
+	@Path("/getXMLPerson")
+	@Produces("application/xml")
+	public Personne getXMLPerson() {
+		return new Personne();
+	}
+	
+	@GET
+	@Path("/getJSONOrXMLPerson")
+	@Produces({"application/json", "application/xml"})
+	public Personne getJSONOrXMLPerson() {
+		return new Personne();
+	}
+	
+	@POST
+	@Path("/addPerson")
+	@Produces("application/json")
+	public Personne addPerson() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonneService");
+		EntityManager em = emf.createEntityManager();
+		PersonneService personneService = new PersonneService(em);
+		personneService.createPerson();
+	}
+}

@@ -1,0 +1,37 @@
+<xs:schema xmlns:tns="http://premierWebServiceClass/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://premierWebServiceClass/" version="1.0">
+
+  <xs:element name="ajoute" type="tns:ajoute"/>
+
+  <xs:element name="ajouteResponse" type="tns:ajouteResponse"/>
+
+  <xs:element name="recupereList" type="tns:recupereList"/>
+
+  <xs:element name="recupereListResponse" type="tns:recupereListResponse"/>
+
+  <xs:complexType name="ajoute">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ajouteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recupereList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recupereListResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
